@@ -12,18 +12,16 @@ let isPaused = false
 audio.loop = false
 
 // eventos
-start.addEventListener('click', function(){
+start.addEventListener('click', () => {
     function startInterval(){
-        startTimer = setInterval(function() {
-            if(!isPaused) {
-                timer()
-            }
+        startTimer = setInterval(() => {
+            !isPaused ? timer() : clearTimeout(startTimer)
         }, 1000);
     }
     startInterval();
 })
 
-reset.addEventListener('click', function(){
+reset.addEventListener('click', () => {
     h.value = 0;
     m.value = 0;
     s.value = 0;
@@ -58,11 +56,11 @@ function stopInterval() {
     audio.pause()
 }
 
-document.onkeydown = function(e) {
+document.onkeydown = (e) => {
     if((e || window.event).keyCode === 73) {
         isPaused = false
         function startInterval(){
-            startTimer = setInterval(function() {
+            startTimer = setInterval(() => {
                 if(!isPaused) {
                     timer()
                 }
