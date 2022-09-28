@@ -1,5 +1,5 @@
-# CountDown
-Timer para estágio
+# https://domalice.github.io/CountDown/
+CountDown para estágio
 
 ## HTML, CSS - GRID/FLEX, JAVASCRIPT
 
