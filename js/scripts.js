@@ -18,7 +18,6 @@ audio.loop = false
 //adicionando o evento de começar o timer no botão start
 start.addEventListener('click', () => {
     if(isPaused) {
-        // setInterval(initialize(), 1000)
         initialize()
     } else {
         stopCount()
@@ -92,7 +91,6 @@ document.body.onkeydown = (e) => {
     // a barra de espaço que inicializa e pausa o countdown
     if(e.code ===  "Space") {
         if(isPaused && start) {
-            // setInterval(initialize(), 1000)
             initialize()
         } else {
             stopCount()
