@@ -18,7 +18,8 @@ audio.loop = false
 //adicionando o evento de começar o timer no botão start
 start.addEventListener('click', () => {
     if(isPaused) {
-        setInterval(initialize(), 1000)
+        // setInterval(initialize(), 1000)
+        initialize()
     } else {
         stopCount()
     }
@@ -39,6 +40,8 @@ const initialize = () => {
     startTimer = setInterval(() => {
         if(!isPaused) {
             timer()
+        } else {
+            stopCount()
         }
     }, 1000)
 }
@@ -85,11 +88,12 @@ const stopInterval = () => {
 }
 
 //evento que faz o código funcionar pressionando as teclas do keyboard
-document.body.onkeypress = (e) => {
+document.body.onkeydown = (e) => {
     // a barra de espaço que inicializa e pausa o countdown
     if(e.code ===  "Space") {
-        if(isPaused) {
-            setInterval(initialize(), 1000)
+        if(isPaused && start) {
+            // setInterval(initialize(), 1000)
+            initialize()
         } else {
             stopCount()
         }
