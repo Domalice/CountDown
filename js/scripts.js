@@ -1,4 +1,5 @@
 
+//selecionando todos os elementos
 const start = document.getElementById('start');
 const reset = document.getElementById('reset');
 
@@ -6,21 +7,24 @@ const h = document.getElementById("hour");
 const m = document.getElementById("minute");
 const s = document.getElementById("sec");
 
+//configuração básica do app; áudio, inicialização
 let startTimer = null;
 let audio = new Audio('./sound/tada.mp3')
-let isPaused = false
+let isPaused = true
 audio.loop = false
 
+
 // eventos
+//adicionando o evento de começar o timer no botão start
 start.addEventListener('click', () => {
-    function startInterval(){
-        startTimer = setInterval(() => {
-            !isPaused ? timer() : clearTimeout(startTimer)
-        }, 1000);
+    if(isPaused) {
+        setInterval(initialize(), 1000)
+    } else {
+        stopCount()
     }
-    startInterval();
 })
 
+//adicionando o reset do timer no botão
 reset.addEventListener('click', () => {
     h.value = 0;
     m.value = 0;
@@ -29,48 +33,74 @@ reset.addEventListener('click', () => {
 })
 
 // funções
-
-function timer(){
-    if(h.value == 0 && m.value == 0 && s.value == 0){
-        h.value = 0;
-        m.value = 0;
-        s.value = 0;
-        audio.play()
-        audio.loop = false
-        change.src="./img/play.jpg"
-    } else if(s.value != 0){
-        change.src="./img/pause.png"
-        s.value--;
-    } else if(m.value != 0 && s.value == 0){
-        s.value = 59;
-        m.value--;
-    } else if(h.value != 0 && m.value == 0){
-        m.value = 60;
-        h.value--;
-    }
-    return;
+// inicialização do aplicativo, fazendo o countdown funcionar
+const initialize = () => {
+    isPaused = false
+    startTimer = setInterval(() => {
+        if(!isPaused) {
+            timer()
+        }
+    }, 1000)
 }
 
-function stopInterval() {
+// função que dá pause e muda a imagem
+const stopCount = () => {
+    isPaused = true
+    startTimer = stopInterval()
+    change.src="./img/green-btn.png"
+}
+
+//lógica do countdown
+const timer = () => {
+    //pegando os valores do input e fazendo a checagem
+    if(h.value == 0 && m.value == 0 && s.value == 0){
+        h.value = 0
+        m.value = 0
+        s.value = 0
+        stopCount()
+        audio.play()
+        //adicionando o countdown nos valores
+    } else if(s.value != 0){
+        s.value--
+        change.src="./img/pause-btn.png"
+        //adicionando o countdown nos valores
+    } else if(m.value != 0 && s.value == 0){
+        s.value = 59
+        m.value--
+        change.src="./img/pause-btn.png"
+        //adicionando o countdown nos valores
+    } else if(h.value != 0 && m.value == 0){
+        m.value = 60
+        h.value--
+        change.src="./img/pause-btn.png"
+    }
+    return
+}
+
+//função do reset e que limpa o input
+const stopInterval = () => {
     clearInterval(startTimer);
     audio.pause()
+    change.src="./img/green-btn.png"
 }
 
-document.onkeydown = (e) => {
-    if((e || window.event).keyCode === 73) {
-        isPaused = false
-        function startInterval(){
-            startTimer = setInterval(() => {
-                if(!isPaused) {
-                    timer()
-                }
-            }, 1000);
+//evento que faz o código funcionar pressionando as teclas do keyboard
+document.body.onkeypress = (e) => {
+    // a barra de espaço que inicializa e pausa o countdown
+    if(e.code ===  "Space") {
+        if(isPaused) {
+            setInterval(initialize(), 1000)
+        } else {
+            stopCount()
         }
-        clearInterval(startTimer)
-        startInterval()
     }
-    if((e || window.event).keyCode === 80) {
-        isPaused = true
-        change.src="./img/play.jpg"
+    
+    // a tecla "R" que reseta e zera o countdown
+    if (e.code === "KeyR") {
+        stopInterval()
+        h.value = 0
+        m.value = 0
+        s.value = 0
+        audio.pause()
     }
 }
