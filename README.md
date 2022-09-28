@@ -7,5 +7,5 @@ CountDown para estágio
 
 ## Bonûs
 
-### Ao finar tocar um alarme ✔️, Ao pressionar a tecla "I" deve inciar o timer ✔️, se precionar a tecla "P" deve pausar ✔️
+### Ao finar tocar um alarme ✔️, Ao pressionar "Espaço" deve inciar o timer ✔️, ao pressionar "Espaço" novamente deve pausar ✔️
 ### O botão pausar e iniciar devem ser o mesmo botão, ou seja, quando estiver contando fica "Pausar" quando estiver parafo fica "Iniciar", alterando apenas o texto do botão ✔️
