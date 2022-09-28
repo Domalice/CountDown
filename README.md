@@ -3,7 +3,7 @@ Timer para estágio
 
 ## HTML, CSS - GRID/FLEX, JAVASCRIPT
 
-### Botão para iniciar a contagem regressiva, botão para pausar a contagem, botão para cancelar a contagem, possível definir o tempo de contagem. (contagem regressiva na tela)
+### Botão para iniciar a contagem regressiva ✔️, botão para pausar a contagem ✔️, botão para cancelar a contagem ✔️, possível definir o tempo de contagem. ✔️ (contagem regressiva na tela ✔️)
 
 ## Bonûs
 
