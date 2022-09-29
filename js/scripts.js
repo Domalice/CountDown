@@ -3,6 +3,8 @@
 const start = document.getElementById('start');
 const reset = document.getElementById('reset');
 
+const allInputs = document.querySelectorAll('.time')
+
 const h = document.getElementById("hour");
 const m = document.getElementById("minute");
 const s = document.getElementById("sec");
@@ -22,6 +24,10 @@ start.addEventListener('click', () => {
     } else {
         stopCount()
     }
+})
+
+start.addEventListener('onMouseDown', (e) => {
+    e.preventDefault()
 })
 
 //adicionando o reset do timer no botão
@@ -52,6 +58,11 @@ const stopCount = () => {
     change.src="./img/green-btn.png"
 }
 
+const startSong = () => {
+    audio.play()
+}
+
+
 //lógica do countdown
 const timer = () => {
     //pegando os valores do input e fazendo a checagem
@@ -59,8 +70,9 @@ const timer = () => {
         h.value = 0
         m.value = 0
         s.value = 0
+        check = false
         stopCount()
-        audio.play()
+        startSong()
         //adicionando o countdown nos valores
     } else if(s.value != 0){
         s.value--
@@ -88,11 +100,12 @@ const stopInterval = () => {
 
 //evento que faz o código funcionar pressionando as teclas do keyboard
 document.body.onkeydown = (e) => {
+    const stopFocus = e.target.blur()
     // a barra de espaço que inicializa e pausa o countdown
     if(e.code ===  "Space") {
         if(isPaused || !start) {
+            stopFocus
             initialize()
-            e.target.blur()
         } else {
             stopCount()
         }
