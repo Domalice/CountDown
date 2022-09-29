@@ -142,6 +142,11 @@ img {
     transition: 0;
 }
 
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 #start {
     grid-area: 3 / 2 / 3 / 4;
 }
