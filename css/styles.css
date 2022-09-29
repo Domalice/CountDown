@@ -149,3 +149,52 @@ img {
 #reset {
     grid-area: 3 / 3 / 3 / 5;
 }
+
+/* Adicionando responsividade para telas menores */
+@media(max-width: 710px) {
+    body {
+        margin: 1em 0;
+    }
+
+    #container {
+        width: 70%;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-left: 5em;
+    }
+
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    .time {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .label {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+}
+
+@media(max-width: 580px) {
+
+    #container {
+        width: 85%;
+    }
+
+    .info {
+        display: inline-flex;
+        margin: 1em auto;
+        width: 100%;
+        text-align: center;
+    }
+
+}
