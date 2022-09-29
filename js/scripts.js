@@ -92,6 +92,7 @@ document.body.onkeydown = (e) => {
     if(e.code ===  "Space") {
         if(isPaused || !start) {
             initialize()
+            e.target.blur()
         } else {
             stopCount()
         }
