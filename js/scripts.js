@@ -90,7 +90,7 @@ const stopInterval = () => {
 document.body.onkeydown = (e) => {
     // a barra de espaço que inicializa e pausa o countdown
     if(e.code ===  "Space") {
-        if(isPaused && start) {
+        if(isPaused || !start) {
             initialize()
         } else {
             stopCount()
