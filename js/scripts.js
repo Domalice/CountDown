@@ -24,6 +24,7 @@ start.addEventListener('click', () => {
     }
 })
 
+//tirando o foco do botão start quando é clicado
 start.addEventListener('onMouseDown', (e) => {
     e.preventDefault()
 })
@@ -56,6 +57,7 @@ const stopCount = () => {
     change.src="./img/green-btn.png"
 }
 
+// som que toca ao finalizar o countdown
 const startSong = () => {
     audio.play()
 }
@@ -68,19 +70,18 @@ const timer = () => {
         h.value = 0
         m.value = 0
         s.value = 0
-        check = false
         stopCount()
         startSong()
-        //adicionando o countdown nos valores
+        //adicionando o countdown nos segundos
     } else if(s.value != 0){
         s.value--
         change.src="./img/pause-btn.png"
-        //adicionando o countdown nos valores
+        //adicionando o countdown nos minutos e configurando os segundos
     } else if(m.value != 0 && s.value == 0){
         s.value = 59
         m.value--
         change.src="./img/pause-btn.png"
-        //adicionando o countdown nos valores
+        //adicionando o countdown nas horase configurando os segundos/minutos
     } else if(h.value != 0 && m.value == 0 && s.value == 0){
         m.value = 59
         s.value = 59
