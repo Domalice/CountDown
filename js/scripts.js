@@ -3,8 +3,6 @@
 const start = document.getElementById('start');
 const reset = document.getElementById('reset');
 
-const allInputs = document.querySelectorAll('.time')
-
 const h = document.getElementById("hour");
 const m = document.getElementById("minute");
 const s = document.getElementById("sec");
