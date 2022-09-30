@@ -83,8 +83,9 @@ const timer = () => {
         m.value--
         change.src="./img/pause-btn.png"
         //adicionando o countdown nos valores
-    } else if(h.value != 0 && m.value == 0){
+    } else if(h.value != 0 && m.value == 0 && s.value == 0){
         m.value = 59
+        s.value = 59
         h.value--
         change.src="./img/pause-btn.png"
     }
