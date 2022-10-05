@@ -1,5 +1,5 @@
 # https://domalice.github.io/CountDown/
-CountDown para estágio
+CountDown para estágio - link acima.
 
 ## HTML, CSS - GRID/FLEX, JAVASCRIPT
 
